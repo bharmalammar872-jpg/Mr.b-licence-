@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sakina 💝</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .page {
+            display: none;
+            min-height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .active {
+            display: flex;
+        }
+        
+        .page-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .birthday-wish {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            max-width: 850px;
+            margin: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .birthday-text {
+            font-size: 2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 300;
+        }
+        
+        .heart {
+            color: #FF4081;
+            font-size: 3rem;
+            margin: 0 15px;
+            animation: heartbeat 1.5s infinite;
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.7);
+        }
+        
+        .poetry-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 30px;
+        }
+        
+        .poetry-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .poetry-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .poetry-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .poetry-text {
+            font-size: 1.6rem;
+            line-height: 1.9;
+            color: #fff;
+            font-style: italic;
+        }
+        
+        .urdu-text {
+            font-size: 1.8rem;
+            line-height: 2.2;
+            color: #fff;
+            direction: rtl;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .gallery-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        .photo-frame {
+            width: 100%;
+            height: 550px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            position: relative;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .gallery-btn {
+            background: linear-gradient(45deg, #FF4081, #FF9100);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+        }
+        
+        .gallery-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+        }
+        
+        .music-player {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 650px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .music-icon {
+            color: #FFD700;
+            font-size: 2.5rem;
+            animation: spin 4s linear infinite;
+        }
+        
+        .music-title {
+            font-size: 1.8rem;
+            color: #FFD700;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        audio {
+            width: 100%;
+            height: 60px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .final-message {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .final-text {
+            font-size: 2.5rem;
+            line-height: 1.8;
+            color: #FFD700;
+            margin-bottom: 50px;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .robot-voice {
+            background: linear-gradient(45deg, #333, #555);
+            color: #00FF88;
+            padding: 25px;
+            border-radius: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            margin: 40px 0;
+            text-align: center;
+            border-left: 8px solid #00FF88;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+        
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #FFD700;
+            margin-top: 40px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 50px;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(45deg, #FF4081, #FF9100);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.4);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 64, 129, 0.6);
+        }
+        
+        .hidden {
+            visibility: hidden;
+        }
+        
+        .progress-container {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        
+        .progress-dot {
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .progress-dot.active {
+            background: #FFD700;
+            transform: scale(1.5);
+            box-shadow: 0 0 20px #FFD700;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .floating {
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 3.5rem;
+            }
+            
+            .birthday-text {
+                font-size: 1.5rem;
+            }
+            
+            .poetry-text, .urdu-text {
+                font-size: 1.3rem;
+            }
+            
+            .final-text {
+                font-size: 1.8rem;
+            }
+            
+            .photo-frame {
+                height: 400px;
+            }
+            
+            .nav-btn {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .signature {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Dots -->
+    <div class="progress-container">
+        <div class="progress-dot active" id="dot1"></div>
+        <div class="progress-dot" id="dot2"></div>
+        <div class="progress-dot" id="dot3"></div>
+        <div class="progress-dot" id="dot4"></div>
+    </div>
+
+    <!-- Page 1: Birthday Wish -->
+    <section class="page active" id="page1">
+        <div class="container">
+            <h1 class="page-title floating">🎂 Happy Birthday Sakina! 🎉</h1>
+            <div class="birthday-wish">
+                <p class="birthday-text">
+                    My Dearest Sakina,<br><br>
+                    On this magical day, I want to fill your life with endless joy, laughter, and love. 
+                    You are not just my partner but my soulmate, my inspiration, and my greatest happiness.
+                    <br><br>
+                    May your birthday be filled with beautiful moments and may all your dreams come true!
+                    <br><br>
+                    <span class="hearts">
+                        <i class="fas fa-heart heart"></i>
+                        <i class="fas fa-heart heart"></i>
+                        <i class="fas fa-heart heart"></i>
+                        <i class="fas fa-heart heart"></i>
+                        <i class="fas fa-heart heart"></i>
+                    </span>
+                </p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn hidden" id="prev1">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" id="next1">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Poetry & Shayari -->
+    <section class="page" id="page2">
+        <div class="container">
+            <h1 class="page-title">💖 With All My Love 💖</h1>
+            <div class="poetry-container">
+                <div class="poetry-box">
+                    <h2 class="poetry-title">My Beautiful Sakina</h2>
+                    <p class="poetry-text">
+                        Your eyes sparkle like morning dew,<br>
+                        Your laughter is music, pure and true.<br>
+                        With you, every moment is a treasure,<br>
+                        A love beyond any measure.<br><br>
+                        
+                        On your special day, I wish you cheer,<br>
+                        Happiness throughout the year.<br>
+                        May angels watch you from above,<br>
+                        And shower you with eternal love.
+                    </p>
+                </div>
+                <div class="poetry-box">
+                    <h2 class="poetry-title">प्यारी साकिना</h2>
+                    <p class="poetry-text">
+                        तुम्हारी हर मुस्कान सूरज सी चमकती है,<br>
+                        तुम्हारी हर बात दिल को छू जाती है।<br>
+                        तुम हो मेरी दुनिया की रौशनी,<br>
+                        तुम्हारे बिना जीवन है सूनी।<br><br>
+                        
+                        जन्मदिन पर यही है अरदास,<br>
+                        भरा रहे तुम्हारा जीवन हर पल ख़ुशी से,<br>
+                        मेरी दुआ है तुम्हारे साथ हमेशा।
+                    </p>
+                </div>
+                <div class="poetry-box">
+                    <h2 class="poetry-title">میری جان ساکینہ</h2>
+                    <p class="urdu-text">
+                        تمھاری ہر بات میرے دل کو چُھو جاتی ہے<br>
+                        تمھاری ہر نظر میں پیار سما جاتا ہے<br>
+                        تمھارے بغیر میری زندگی ادھوری ہے<br>
+                        تمھارے ساتھ ہر لمحہ خوشیوں بھرا ہے<br><br>
+                        
+                        آج تمھارا جنم دن ہے میری جان<br>
+                        خُدا کرے تمھاری ہر خواہش پوری ہو<br>
+                        ہمیشہ مسکراتی رہو میری محبوب
+                    </p>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prev2">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" id="next2">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Photo Gallery -->
+    <section class="page" id="page3">
+        <div class="container">
+            <h1 class="page-title">📸 Our Beautiful Journey 📸</h1>
+            <div class="gallery-container">
+                <div class="photo-frame">
+                    <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Beautiful Memory" class="photo" id="current-photo">
+                    <div class="photo-caption" id="photo-caption">You make every moment magical</div>
+                </div>
+                
+                <div class="gallery-controls">
+                    <button class="gallery-btn" id="prevPhoto">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="gallery-btn" id="playMusic">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="gallery-btn" id="nextPhoto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="music-player">
+                    <div class="music-info">
+                        <i class="fas fa-music music-icon"></i>
+                        <h3 class="music-title">Birthday Melody for My Love</h3>
+                    </div>
+                    <audio id="birthdayMusic" loop>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prev3">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" id="next3">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Final Message -->
+    <section class="page" id="page4">
+        <div class="container">
+            <h1 class="page-title">💌 Forever Yours 💌</h1>
+            <div class="final-message">
+                <p class="final-text">
+                    With every heartbeat, my love for you grows stronger.<br>
+                    You are the most precious gift life has given me.
+                </p>
+                
+                <div class="robot-voice" id="robotMessage">
+                    🔊 Happy Birthday Sakina! I am always love you forever. For your faithfully, your Kutub. 🔊
+                </div>
+                
+                <button class="nav-btn" id="playVoice" style="margin: 30px auto;">
+                    <i class="fas fa-robot"></i> Play Special Message
+                </button>
+                
+                <div class="signature">
+                    Forever and Always,<br>
+                    Your Loving Partner 💝
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prev4">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="nav-btn" id="restart">
+                    <i class="fas fa-redo"></i> Start Again
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // SIMPLE PAGE NAVIGATION - 100% WORKING
+        let currentPage = 1;
+        const totalPages = 4;
+        
+        // Function to show page
+        function goToPage(pageNum) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show current page
+            document.getElementById(`page${pageNum}`).classList.add('active');
+            
+            // Update progress dots
+            document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+                if (index === pageNum - 1) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentPage = pageNum;
+            
+            // Auto-play music on page 3
+            if (pageNum === 3 && !musicPlaying) {
+                birthdayMusic.play();
+                playMusic.innerHTML = '<i class="fas fa-pause"></i>';
+                musicPlaying = true;
+            }
+        }
+        
+        // Navigation Event Listeners
+        document.getElementById('next1').addEventListener('click', () => goToPage(2));
+        document.getElementById('next2').addEventListener('click', () => goToPage(3));
+        document.getElementById('next3').addEventListener('click', () => goToPage(4));
+        
+        document.getElementById('prev2').addEventListener('click', () => goToPage(1));
+        document.getElementById('prev3').addEventListener('click', () => goToPage(2));
+        document.getElementById('prev4').addEventListener('click', () => goToPage(3));
+        
+        document.getElementById('restart').addEventListener('click', () => {
+            goToPage(1);
+            if (musicPlaying) {
+                birthdayMusic.pause();
+                birthdayMusic.currentTime = 0;
+                playMusic.innerHTML = '<i class="fas fa-play"></i>';
+                musicPlaying = false;
+            }
+        });
+        
+        // Photo Gallery
+        const photos = [
+            {url: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", caption: "You make every moment magical"},
+            {url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", caption: "Your smile lights up my world"},
+            {url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", caption: "The most beautiful soul I know"},
+            {url: "https://images.unsplash.com/photo-1494790108755-2616c113a1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", caption: "My heart belongs to you forever"},
+            {url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", caption: "Happy Birthday my princess!"}
+        ];
+        
+        let photoIndex = 0;
+        const currentPhoto = document.getElementById('current-photo');
+        const photoCaption = document.getElementById('photo-caption');
+        
+        function updatePhoto() {
+            currentPhoto.style.opacity = '0';
+            setTimeout(() => {
+                currentPhoto.src = photos[photoIndex].url;
+                photoCaption.textContent = photos[photoIndex].caption;
+                currentPhoto.style.opacity = '1';
+            }, 300);
+        }
+        
+        document.getElementById('nextPhoto').addEventListener('click', () => {
+            photoIndex = (photoIndex + 1) % photos.length;
+            updatePhoto();
+        });
+        
+        document.getElementById('prevPhoto').addEventListener('click', () => {
+            photoIndex = (photoIndex - 1 + photos.length) % photos.length;
+            updatePhoto();
+        });
+        
+        // Auto change photos
+        setInterval(() => {
+            if (currentPage === 3) {
+                photoIndex = (photoIndex + 1) % photos.length;
+                updatePhoto();
+            }
+        }, 4000);
+        
+        // Music Player
+        const birthdayMusic = document.getElementById('birthdayMusic');
+        const playMusic = document.getElementById('playMusic');
+        let musicPlaying = false;
+        
+        playMusic.addEventListener('click', () => {
+            if (musicPlaying) {
+                birthdayMusic.pause();
+                playMusic.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                birthdayMusic.play();
+                playMusic.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            musicPlaying = !musicPlaying;
+        });
+        
+        // Robot Voice
+        document.getElementById('playVoice').addEventListener('click', function() {
+            const message = "Happy Birthday Sakina! I am always love you forever. For your faithfully, your Kutub.";
+            const speech = new SpeechSynthesisUtterance(message);
+            speech.rate = 0.9;
+            speech.pitch = 0.8;
+            
+            // Visual feedback
+            const robotBox = document.getElementById('robotMessage');
+            robotBox.style.background = 'linear-gradient(45deg, #222, #444)';
+            robotBox.style.boxShadow = '0 0 30px #00FF88';
+            
+            // Speak
+            window.speechSynthesis.speak(speech);
+            
+            // Reset after speaking
+            speech.onend = () => {
+                setTimeout(() => {
+                    robotBox.style.background = 'linear-gradient(45deg, #333, #555)';
+                    robotBox.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+                }, 1000);
+            };
+            
+            // Button feedback
+            this.innerHTML = '<i class="fas fa-robot"></i> Playing...';
+            this.disabled = true;
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-robot"></i> Play Special Message';
+                this.disabled = false;
+            }, 4000);
+        });
+        
+        // Create sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.fontSize = Math.random() * 20 + 10 + 'px';
+            sparkle.style.opacity = '0.7';
+            document.body.appendChild(sparkle);
+            
+            // Animation
+            sparkle.animate([
+                { transform: 'scale(0.5) rotate(0deg)', opacity: 0 },
+                { transform: 'scale(1) rotate(180deg)', opacity: 0.7 },
+                { transform: 'scale(0.5) rotate(360deg)', opacity: 0 }
+            ], {
+                duration: Math.random() * 2000 + 2000,
+                easing: 'ease-in-out'
+            });
+            
+            // Remove after animation
+            setTimeout(() => sparkle.remove(), 4000);
+        }
+        
+        // Create initial sparkles
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSparkle, i * 200);
+        }
+        
+        // Continue creating sparkles
+        setInterval(createSparkle, 500);
+        
+        // Initialize
+        updatePhoto();
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                goToPage(currentPage + 1);
+            } else if (e.key === 'ArrowLeft' && currentPage > 1) {
+                goToPage(currentPage - 1);
+            }
+        });
+    </script>
+</body>
+</html>
